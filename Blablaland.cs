@@ -19,6 +19,10 @@ namespace ConsoleApp1
             cookie.Domain = "blablaland.fun";
             cookies.Add(cookie);
             GetSessionId();
+
+
+
+
             while (true)
             {
                 ChangeSkin();
@@ -55,14 +59,15 @@ namespace ConsoleApp1
 
         private void ChangeSkin()
         {
-            int randomSkinId = randomNum.Next(1, 680);
+            int randomSkinId = Convert.ToInt32(StreamManip.skins[randomNum.Next(0,StreamManip.skins.Count)]);
             HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("https://blablaland.fun/scripts/profil/setSkinData.php?SKINID=" + randomSkinId + "&SESSION=" + sessionId + "&CACHE=1609802541237&SKINCOLOR=%3BQFZHFQMD");
             req.Method = "GET";
             req.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36";
             req.CookieContainer = cookies;
             req.Referer = "https://blablaland.fun/account?p=1";
             req.Headers.Add("X-Requested-With", "ShockwaveFlash/32.0.0.465");
-            req.Timeout = 5000;
+            req.Proxy = new WebProxy(StreamManip.proxies[randomNum.Next(0, StreamManip.proxies.Count)]);
+            req.Timeout = 3000;
             try
             {
                 HttpWebResponse resp = (HttpWebResponse)req.GetResponse();

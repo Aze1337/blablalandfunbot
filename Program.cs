@@ -11,7 +11,9 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             Console.Title = "Blablaland skin changer by nikolatesla";
-            Blablaland acc = new Blablaland("umG7OV4iMEiCfSUiIXkbcCoZqqTKfy28UBVnvMzIIZHIXm8l"); // the cookie named BBL_AUTH_SESSION
+            StreamManip.LoadSkins();
+            StreamManip.LoadProxies();
+            Blablaland acc = new Blablaland("kyOkvtElyaD9Wu55UsA6twBB7MEds6t8phtnFT77c615BQP1"); // the cookie named BBL_AUTH_SESSION
         }
     }
 }
