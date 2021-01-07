@@ -1,10 +1,7 @@
 #blablaland.fun skin changer bot
 
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/GY0uhWe" data-context="false" ><a href="//imgur.com/a/GY0uhWe"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-
-
-![alt text](https://imgur.com/hzIqAPv.jpg) 
+![alt text](https://i.imgur.com/7HtdVJG.jpg) 
 
 
 # What is this 
