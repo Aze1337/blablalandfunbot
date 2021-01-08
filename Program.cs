@@ -13,7 +13,7 @@ namespace ConsoleApp1
             Console.Title = "Blablaland skin changer by nikolatesla";
             StreamManip.LoadSkins();
             StreamManip.LoadProxies();
-            Blablaland acc = new Blablaland("kyOkvtElyaD9Wu55UsA6twBB7MEds6t8phtnFT77c615BQP1"); // the cookie named BBL_AUTH_SESSION
+            Blablaland acc = new Blablaland("O8H9kQDYeA5p6Ub7xd1tmPmF3qGymmWhqRlwjA1nUsa2az7N"); // the cookie named BBL_AUTH_SESSION
         }
     }
 }

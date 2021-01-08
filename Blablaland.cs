@@ -13,6 +13,7 @@ namespace ConsoleApp1
         private string sessionId; // sessionId 
         private CookieContainer cookies = new CookieContainer();
         private Random randomNum = new Random();
+        private static string lastId = "";
         public Blablaland(string authCookie)
         {
             Cookie cookie = new Cookie("BBL_AUTH_SESSION", authCookie);
@@ -26,7 +27,7 @@ namespace ConsoleApp1
             while (true)
             {
                 ChangeSkin();
-                System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(2000);
             }
         }
 
@@ -60,13 +61,18 @@ namespace ConsoleApp1
         private void ChangeSkin()
         {
             int randomSkinId = Convert.ToInt32(StreamManip.skins[randomNum.Next(0,StreamManip.skins.Count)]);
+            while (randomSkinId.ToString() == lastId)
+            {
+                randomSkinId = Convert.ToInt32(StreamManip.skins[randomNum.Next(0, StreamManip.skins.Count)]);
+            }
+            lastId = randomSkinId.ToString();
             HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("https://blablaland.fun/scripts/profil/setSkinData.php?SKINID=" + randomSkinId + "&SESSION=" + sessionId + "&CACHE=1609802541237&SKINCOLOR=%3BQFZHFQMD");
             req.Method = "GET";
             req.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36";
             req.CookieContainer = cookies;
             req.Referer = "https://blablaland.fun/account?p=1";
             req.Headers.Add("X-Requested-With", "ShockwaveFlash/32.0.0.465");
-            req.Proxy = new WebProxy(StreamManip.proxies[randomNum.Next(0, StreamManip.proxies.Count)]);
+            //req.Proxy = new WebProxy(StreamManip.proxies[randomNum.Next(0, StreamManip.proxies.Count)]); uncomment to use proxies support
             req.Timeout = 3000;
             try
             {
